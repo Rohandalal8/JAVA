@@ -15,7 +15,7 @@ public class FunctionsAndMethods {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int b = sc.nextInt();
-        int sum = addNumbers(a, b);
+        int sum = addNumbers(a, b); //arguments are passed to the function
         System.out.println("Sum: " + sum);
 
         // printHello();
