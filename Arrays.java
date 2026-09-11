@@ -88,6 +88,41 @@ public class Arrays {
         }
     }
 
+    // Print the maximum sum of subarrays
+    public static void maxSubarraySum(int numbers[]) {
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i; j < numbers.length; j++) {
+                int currSum = 0;
+                for (int k = i; k <= j; k++) {
+                    currSum += numbers[k];
+                }
+                if (currSum > maxSum) {
+                    maxSum = currSum;
+                }
+                System.out.println("Current sum of subarray from index " + i + " to " + j + " is: " + currSum);
+            }
+        }
+        System.out.println("Maximum sum of subarrays is: " + maxSum);
+    }
+
+    // print the maximum sum of subarrays using kadane's algorithm
+    public static void kadane(int numbers[]) {
+        int maxSum = Integer.MIN_VALUE;
+        int currSum = 0;
+
+        for (int i = 0; i < numbers.length; i++) {
+            currSum += numbers[i];
+            if (currSum > maxSum) {
+                maxSum = currSum;
+            }
+            if (currSum < 0) {
+                currSum = 0;
+            }
+        }
+        System.out.println("Maximum sum of subarrays using Kadane's algorithm is: " + maxSum);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -119,10 +154,12 @@ public class Arrays {
 
         // reverse(numbers);
         // for (int i = 0; i < numbers.length; i++) {
-        //     System.out.print(numbers[i] + " ");
+        // System.out.print(numbers[i] + " ");
         // }
 
         // printPairs(numbers);
-        subarrays(numbers);
+        // subarrays(numbers);
+        // maxSubarraySum(numbers);
+        kadane(numbers);
     }
 }
